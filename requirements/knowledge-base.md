@@ -1,12 +1,28 @@
- Project Requirements: Nseek Digital
+# Knowledge Base
 
- 1. Core Identity
+Information about the client and project goals.
 
-- Project Name: Nseek Agency Web Presence
+## Client Profile.
 
-- Industry/Niche: Digital Marketing Agency / B2B Services
+- **Client Name**: [Name]
+- **Industry**: [Industry]
+- **Target Audience**: [Who is this site for?]
+- **Unique Selling Proposition**: [What makes them special?]
 
-- Primary Goal: Lead Generation (Request a Quote/Consultation) and Portfolio Showcase.
+## Inspiration
 
-- Target Audience: Small to Medium Enterprises (SMEs) in Kerala, Local Business Owners in Palakkad, and Startups looking for branding.
+> "Good artists copy, great artists steal." - Pablo Picasso
 
+- **Reference Website 1**: [URL] - _Likes: The clean header and hero section._
+- **Reference Website 2**: [URL] - _Likes: The animation style._
+
+## Assets
+
+- **Logo**: `public/assets/logo.webp`
+- **Hero Image**: `public/assets/hero.webp`
+- **Images Folder**: `public/assets/`
+
+## Special Requirements
+
+- [e.g., Must have a dark mode toggle]
+- [e.g., Needs a blog section]

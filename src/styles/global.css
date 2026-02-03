@@ -1,1 +1,16 @@
 @import "tailwindcss";
+
+@theme {
+  /* Default theme extensions will go here */
+}
+
+@layer base {
+  body {
+    @apply antialiased text-gray-900 bg-white;
+  }
+}
+
+/* Custom Utilities */
+.anim-fade-up {
+  @apply opacity-0 translate-y-4;
+}

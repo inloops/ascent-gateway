@@ -1,0 +1,10 @@
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Global GSAP Context for cleanup if needed (optional for simple sites)
+  window.gsap = gsap;
+  window.ScrollTrigger = ScrollTrigger;
+</script>
