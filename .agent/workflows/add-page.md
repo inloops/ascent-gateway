@@ -24,24 +24,52 @@ PHASE 1 — DOCUMENTATION UPDATE 1. Update sitemap-plan/index.md
 
 ⸻
 
-PHASE 2 — PROJECT STRUCTURE UPDATE 1. Create the new page file
-• src/pages/[pagename].astro (blank placeholder) 2. If a new Content Collection is needed:
-• Update src/content/config.ts and add the new schema.
-• Create folder: src/content/[collection]/
-• Add a placeholder .md file. 3. Add unsplash prep
-• Inside the new collection folder, make space for minimal unsplash image fields in future markdown.
+PHASE 2 — HYBRID STRUCTURE CREATION
+
+1. Create the Content File
+   • Path: `src/content/pages/[pagename].md`
+   • Action: Create with standard frontmatter (title, description, heroImage) and dummy body text.
+
+2. Create the Page File
+   • Path: `src/pages/[pagename].astro`
+   • Action: Create a minimal file that fetches the content.
+   • Template:
+
+   ```astro
+   ---
+   import Layout from '../layouts/Layout.astro';
+   import { getEntry } from 'astro:content';
+
+   const page = await getEntry('pages', '[pagename]');
+   if (!page) throw new Error('Could not find content for [pagename]');
+   const { Content } = await page.render();
+   ---
+
+   <Layout title={page.data.title}>
+     <main>
+       <!-- DESIGN GOES HERE -->
+       <h1>{page.data.title}</h1>
+       <Content />
+     </main>
+   </Layout>
+   ```
+
+3. Update Collections (if needed)
+   • If a new collection type is required, update `src/content/config.ts`.
 
 ⸻
 
 PHASE 3 — SUMMARY
-• List every file changed and what was added/updated.
-• No design.
-• No HTML.
-• No GSAP.
-• No page content.
+• Files Initialized: 2 (Content + Page)
+• Design Status: Basic Skeleton
+• Next Step: Run `/create-page [pagename]` to apply unique design.
 
 ⸻
 
 CONCLUSION
 Response:
-“Page [pagename] has been successfully added to the project sitemap and structure. Documentation (sitemap-plan/index.md) and structural files have been updated. The next step is to run /create-page [pagename] to design the new page.”
+“Hybrid Page [pagename] initialized.
+
+1. Content: `src/content/pages/[pagename].md`
+2. Design: `src/pages/[pagename].astro`
+   Run `/create-page [pagename]` to style the page.”

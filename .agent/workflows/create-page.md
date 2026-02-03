@@ -20,105 +20,97 @@ src/content/pages/[page_name].md
 
 ⸻
 
-PHASE 1 — PLANNING 1. Read overview again:
-sitemap-plan/[page_name].md 2. Validate page file existence:
-src/pages/[page_name].astro (must exist) 3. Design references:
-• requirements/design-system.md
-• requirements/knowledge-base.md → primary goal 4. Produce a Planning Artifact containing:
-• UI specs needed for this page
-• High-level page structure
-• GSAP animation plan (ScrollTrigger, Timelines, triggers, expected motion)
-• Keep it short but specific
+PHASE 1 — PLANNING
+
+1. Read overview again:
+   sitemap-plan/[page_name].md
+2. Validate page file existence:
+   src/pages/[page_name].astro (must exist)
+3. Design references:
+   • requirements/design-system.md
+   • requirements/knowledge-base.md → primary goal 4. Produce a Planning Artifact containing:
+   • UI specs needed for this page
+   • High-level page structure
+   • GSAP animation plan (ScrollTrigger, Timelines, triggers, expected motion)
+   • Keep it short but specific
 
 ⸻
 
-PHASE 2 — PAGE CONSTRUCTION
+PHASE 2 — PAGE CONSTRUCTION (HYBRID)
 
 Rules
-• Shared components allowed: create only minimal, reusable components for site-wide use. No other components may be created in this workflow.
-• All HTML goes inside the page file.
-• Only allowed imports → layout + getEntry.
-• No hard-coded text or image paths.
-• All values come from the Markdown content file.
+• The Content File (`src/content/pages/[name].md`) IS THE SOURCE OF TRUTH.
+• The Page File (`src/pages/[name].astro`) IS THE DESIGN.
+• You MUST NOT hardcode text.
+• You MUST import `getEntry` and fetch the content.
 
 ⸻
 
-Step 1 — Content Fetching
+Step 1 — Verify Content
 
-Content file:
-src/content/pages/[page_name].md
+1. Read `src/content/pages/[page_name].md`.
+2. Ensure it has the data you need (title, images, etc).
 
-Agent must:
+Step 2 — Design the Page
+Edit `src/pages/[page_name].astro`.
 
-const content = await getEntry('pages', '[page_name]');
-const { Content } = await content.render();
+Required Structure:
 
-Use:
-• content.data → short text + asset paths
-• <Content /> → long text body
-
-⸻
-
-Step 2 — Build Page (inside src/pages/[page_name].astro)
-
-Minimal structure:
-
+```astro
 ---
-
 import Layout from "../layouts/Layout.astro";
-const content = await getEntry('pages', '[page_name]');
-const { Content } = await content.render();
+import { getEntry } from 'astro:content';
 
+const page = await getEntry('pages', '[page_name]');
+if (!page) return Astro.redirect('/404');
+const { Content } = await page.render();
 ---
 
-<Layout>
-  <!-- Page HTML (all hand-built here) -->
+<Layout title={page.data.title}>
+  <!--
+      BUILD YOUR DESIGN HERE
+      Use Tailwind for styling.
+      Use page.data.* for all text/images.
+  -->
+
+  <section class="hero relative h-[50vh]">
+      <img src={page.data.heroImage} class="absolute inset-0 w-full h-full object-cover" />
+      <h1>{page.data.title}</h1>
+  </section>
+
+  <article class="prose">
+      <Content />
+  </article>
+
 </Layout>
-
-HTML, layout blocks, sections, grids → all written directly inside the .astro file.
-
-Example usage (simple but strict):
-
-<section>
-  <h1>{content.data.title}</h1>
-  <img src={content.data.heroImage} alt="" />
-</section>
-
-<section>
-  <Content />
-</section>
-
-Styling:
-• Use Tailwind only
-• Tailwind classes must follow design-system palette
+```
 
 ⸻
 
 PHASE 3 — ANIMATION INTEGRATION
-• Add GSAP animation logic directly inside the page (client:load or client:visible)
-• Use ScrollTrigger / Timelines exactly as described in the Planning Artifact
-• Follow GSAP best practices (refs, scoped selectors)
+• Add GSAP animation logic directly inside the page (client:load or client:visible).
+• Target the elements you built in Step 2.
 
 ⸻
 
 PHASE 4 — VISUAL VERIFICATION
 
-1. Run `npm run dev` (if not already running).
-2. Use the `browser_subagent` tool to visit the page URL (e.g., http://localhost:4321/[page_name]).
-3. Inspect the page for:
-   - Layout correctness
-   - Broken images (404s)
+1. Run `npm run dev`.
+2. Visit http://localhost:4321/[page_name].
+3. Inspect for:
+   - Design quality
+   - Content correctness (is it pulling the right title?)
    - Console errors
-4. If errors are found, Fix them immediately.
+4. Fix bugs immediately.
 5. Capture a verification screenshot.
 
 Verification Artifact:
-• Screenshot of the rendered page from the browser.
-• Console log summary.
-• Short description of animations.
+• Screenshot of the rendered page.
+• Code snippet showing the `getEntry` logic.
 
 CONCLUSION (FINAL RESPONSE)
 
-For each page, end with:
-
-“Page [pagename] has been fully designed, styled, and animated according to the project specifications. The code is complete and follows the defined design system. Please review the Artifacts.”
+“Page [pagename] has been designed.
+• Design: `src/pages/[pagename].astro`
+• Content Source: `src/content/pages/[pagename].md`
+It is fully styled and connected to the CMS.”
