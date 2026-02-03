@@ -24,6 +24,12 @@ Navigate to the folders and edit these three files:
 - **What to do:** List the pages you need (e.g., Home, About, Services, Contact).
 - **Format:** Follow the table format inside the file.
 
+### D. Assets (`public/assets/`)
+
+- **What to do:** Place your logo and images here.
+- **Format:** All images must be in `.webp` format.
+- **Naming:** Use simple lowercase names (e.g., `logo.webp`, `hero-image.webp`).
+
 ---
 
 ## 2. Initialize the Project
