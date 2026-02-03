@@ -99,11 +99,23 @@ PHASE 3 — ANIMATION INTEGRATION
 • Use ScrollTrigger / Timelines exactly as described in the Planning Artifact
 • Follow GSAP best practices (refs, scoped selectors)
 
-Verification Artifact:
-• Simulated screenshot or rendering summary
-• Short description of what animations do
-
 ⸻
+
+PHASE 4 — VISUAL VERIFICATION
+
+1. Run `npm run dev` (if not already running).
+2. Use the `browser_subagent` tool to visit the page URL (e.g., http://localhost:4321/[page_name]).
+3. Inspect the page for:
+   - Layout correctness
+   - Broken images (404s)
+   - Console errors
+4. If errors are found, Fix them immediately.
+5. Capture a verification screenshot.
+
+Verification Artifact:
+• Screenshot of the rendered page from the browser.
+• Console log summary.
+• Short description of animations.
 
 CONCLUSION (FINAL RESPONSE)
 
