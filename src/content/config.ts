@@ -6,8 +6,7 @@ const pages = defineCollection({
     title: z.string(),
     description: z.string().optional(),
     heroImage: z.string().optional(),
-    // Add more fields as needed based on project requirements
-  }),
+  }).passthrough(),
 });
 
 

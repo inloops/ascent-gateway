@@ -1,22 +1,80 @@
+---
+import "../styles/global.css";
+import GSAPProvider from "../components/ui/GSAPProvider.astro";
+
+interface Props {
+  title?: string;
+}
+
+const { title = "Ascent Travels" } = Astro.props;
+---
+
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
-</html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Ascent Travels - Reach new heights" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <body class="bg-background text-text min-h-screen flex flex-col">
+    <GSAPProvider />
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+    <!-- Standard Header Placeholder -->
+    <header
+      class="w-full py-4 border-b border-gray-200 bg-white/90 backdrop-blur-sm fixed top-0 z-50"
+    >
+      <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
+        <a href="/" class="text-2xl font-heading font-bold text-primary"
+          >ASCENT TRAVELS</a
+        >
+        <nav class="hidden md:flex space-x-6">
+          <a href="/" class="hover:text-secondary transition-colors">Home</a>
+          <a href="/expeditions" class="hover:text-secondary transition-colors"
+            >Expeditions</a
+          >
+          <a href="/trip" class="hover:text-secondary transition-colors"
+            >Trips</a
+          >
+          <a href="/about" class="hover:text-secondary transition-colors"
+            >About</a
+          >
+          <a href="/contact" class="hover:text-secondary transition-colors"
+            >Contact</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <main class="flex-grow pt-20">
+      <slot />
+    </main>
+
+    <!-- Standard Footer Placeholder -->
+    <footer class="bg-primary text-white py-12">
+      <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <h3 class="text-xl font-heading mb-4 text-secondary">
+            Ascent Travels
+          </h3>
+          <p class="text-gray-400">Journeys beyond the map.</p>
+        </div>
+        <div>
+          <h4 class="font-bold mb-4">Explore</h4>
+          <ul class="space-y-2">
+            <li>
+              <a href="/expeditions" class="hover:text-secondary"
+                >Expeditions</a>
+            </li>
+            <li><a href="/about" class="hover:text-secondary">About Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold mb-4">Contact</h4>
+          <p class="text-gray-400">info@ascenttravels.com</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

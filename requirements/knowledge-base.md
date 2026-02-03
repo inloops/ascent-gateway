@@ -1,28 +1,29 @@
 # Knowledge Base
 
-Information about the client and project goals.
+Computed "Client DNA" for the project.
 
-## Client Profile.
+## Client Profile
 
-- **Client Name**: [Name]
-- **Industry**: [Industry]
-- **Target Audience**: [Who is this site for?]
-- **Unique Selling Proposition**: [What makes them special?]
+- **Client Name**: Ascent Travels
+- **Industry**: Adventure & Expedition Travel Agency
+- **Target Audience**: Adventure seekers, mountaineers, and outdoor enthusiasts aged 25-50 who value safety and authentic experiences.
+- **Unique Selling Proposition**: "Reach new heights." We specialize in guided high-altitude trekking and premium mountaineering expeditions.
 
 ## Inspiration
 
-> "Good artists copy, great artists steal." - Pablo Picasso
+> "The mountains are calling and I must go."
 
-- **Reference Website 1**: [URL] - _Likes: The clean header and hero section._
-- **Reference Website 2**: [URL] - _Likes: The animation style._
+- **Primary Reference**: [Tourm](https://tourm-react.netlify.app/)
+  - _Likes:_ The authentic imagery, clear trip summaries, and sustainable travel focus.
 
 ## Assets
 
-- **Logo**: `public/assets/logo.webp`
-- **Hero Image**: `public/assets/hero.webp`
-- **Images Folder**: `public/assets/`
+- **Logo**: `public/assets/logo.webp` (Text-based bold logo if image missing)
+- **Hero Strategy**: Breathtaking mountain peaks, climbers on ridges, wide panoramic landscape shots.
+- **Images**: Use unsplash source keywords like "mountain", "hiking", "expedition", "snow", "camping", "everest".
 
 ## Special Requirements
 
-- [e.g., Must have a dark mode toggle]
-- [e.g., Needs a blog section]
+- **Visuals**: High contrast images. Text must be readable over complex backgrounds (use gradients).
+- **Features**: "Difficulty Rating" for trips (e.g., Easy, Moderate, Extreme).
+- **Navigation**: Clear "Find Your Trip" search/filter bar on the home page.

@@ -1,22 +1,19 @@
 # Sitemap Plan
 
-Define the structure of the website here. This file is used to generate the skeleton of the project.
-
 ## Pages
 
-List all the pages that need to be created.
+List of pages for Ascent Travels.
 
-| Page Name | Route     | Description                           | Sections                                 |
-| :-------- | :-------- | :------------------------------------ | :--------------------------------------- |
-| Home      | /         | The main landing page.                | Hero, Features, About, Testimonials, CTA |
-| About     | /about    | Information about the company/client. | Mission, Team, History                   |
-| Services  | /services | Detailed list of services.            | Service List, Process, Pricing           |
-| Contact   | /contact  | Contact information and form.         | Contact Form, Map, Info                  |
+| Page Name    | Route        | Description                           | Sections                                                             |
+| :----------- | :----------- | :------------------------------------ | :------------------------------------------------------------------- |
+| Home         | /            | Gateway to adventure. High impact.    | Hero (Video), Trip Search, Featured Expeditions, Why Ascent, Reviews |
+| Expeditions  | /expeditions | Catalog of all trips and treks.       | Filter Bar (Region, Difficulty), Trip Grid, Featured Peak            |
+| Trip Details | /trip        | _Template_ for individual trip pages. | Overview, Itinerary (Day by Day), Gear List, Booking                 |
+| About        | /about       | Who we are and our guides.            | Our Mission, Guide Profiles, Safety Standards                        |
+| Contact      | /contact     | Start the conversation.               | Contact Form, Office Location, Emergency Contacts                    |
 
 ## Content Details
 
-For each page, you can provide specific content requirements or refer to a separate markdown file in `src/content/pages/`.
-
-**Example:**
-
-- **Home**: "We create digital experiences..."
+- **Home**: Focus on the "Call of the Wild". Hero text: "Conquer Your Next Summit".
+- **Expeditions**: Each card must show: Duration, Difficulty Level, and Price.
+- **About**: Highlight "Safety First" and "Expert Guides" – crucial for adventure travel.

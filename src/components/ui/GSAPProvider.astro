@@ -1,10 +1,42 @@
 <script>
-  import { gsap } from "gsap";
+  import gsap from "gsap";
   import { ScrollTrigger } from "gsap/ScrollTrigger";
 
   gsap.registerPlugin(ScrollTrigger);
 
-  // Global GSAP Context for cleanup if needed (optional for simple sites)
-  window.gsap = gsap;
-  window.ScrollTrigger = ScrollTrigger;
+  // Global GSAP Context for cleanup if needed (view transitions)
+  document.addEventListener("astro:page-load", () => {
+    // Refresh ScrollTrigger on page navigation if using View Transitions
+    ScrollTrigger.refresh();
+
+    // Default Entrance Animation
+    gsap.utils.toArray(".anim-fade-up").forEach((el: any) => {
+      gsap.to(el, {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: el,
+          start: "top 85%",
+        },
+      });
+    });
+  });
+
+  // Initial load for non-SPA modes
+  window.addEventListener("load", () => {
+    gsap.utils.toArray(".anim-fade-up").forEach((el: any) => {
+      gsap.to(el, {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: el,
+          start: "top 85%",
+        },
+      });
+    });
+  });
 </script>
